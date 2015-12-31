@@ -5,8 +5,4 @@ from . import views
 urlpatterns = patterns('',
 
     url(r'^$', views.Login),
-    url('^', include('html5_appcache.urls')),
 )
-
-import html5_appcache
-html5_appcache.autodiscover()
