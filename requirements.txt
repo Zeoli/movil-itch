@@ -1,5 +1,6 @@
 dj-database-url==0.3.0
 Django==1.9
+django-html5-appcache==0.4.0
 django-postgrespool==0.3.0
 gunicorn==19.3.0
 psycopg2==2.6
