@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'html5_appcache',
     'usuario',
 )
 
@@ -49,6 +50,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
 )
 
 ROOT_URLCONF = 'webapp.urls'
@@ -91,6 +93,12 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+#Cache enabled
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+    }
+}
 
 # Parse database configuration from $DATABASE_URL
 DATABASES['default'] = dj_database_url.config()
