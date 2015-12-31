@@ -93,13 +93,6 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-#Cache enabled
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-    }
-}
-
 # Parse database configuration from $DATABASE_URL
 DATABASES['default'] = dj_database_url.config()
 
