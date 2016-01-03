@@ -5,5 +5,6 @@ from . import views
 urlpatterns = patterns('',
 
     url(r'^$', views.Main),
+    url(r'^$', views.Main),
     url(r'^register/$', views.Create),
 )
