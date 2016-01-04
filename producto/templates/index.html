@@ -6,8 +6,8 @@
 </head>
 <body>
     {% if productos %}
-        {% for producto in productos %}
-            {{ producto }}
+        {% for item in productos %}
+            {{ item }}
         {% endfor %}
     {% else %}
         <p>No se encontraron productos</p>
