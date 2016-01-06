@@ -1,14 +1,10 @@
-from django.shortcuts import render, HttpResponse, render_to_response, redirect
+from django.shortcuts import render, HttpResponseRedirect, render_to_response, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login as authlogin, logout as authlogout, authenticate
-from django.http import HttpResponseRedirect
-from usuario.forms import CreateUserForm, LoginUserForm
+from usuario.forms import CreateUserForm, LoginUserForm, PerfilForm
+from .models import Profile
 # Create your views here.
-
-@login_required(login_url='/login')
-def Main(request):
-    return HttpResponse("Hola Mundo")
 
 def Create(request):
     # if this is a POST request we need to process the form data
@@ -34,7 +30,8 @@ def Create(request):
                 new_user.last_name = last_name
                 new_user.save()
                 # redirect to a new URL:
-                return redirect('/login')
+                #return redirect('/login')
+                return HttpResponseRedirect('/')
         # if a GET (or any other method) we'll create a blank form
         else:
             form = CreateUserForm()
@@ -44,26 +41,41 @@ def Create(request):
 
 def Login(request):
     if request.method == 'POST':
-        form = LoginUserForm(request.POST)
-        if form.is_valid():
-            msg = {}
-            username = form.cleaned_data['Username']
-            psw = form.cleaned_data['Password']
+        msg = {}
+        username = request.POST['username']
+        psw = request.POST['password']
+        if username and psw:
             user = authenticate(username=username, password=psw)
             if user is not None:
                 if user.is_active:
                     authlogin(request, user)
-                    return redirect('/')
+                    return HttpResponseRedirect('/')
                 else:
                     msg['error'] = 'Cuenta inhabilitada'
-                    return render_to_response('login.html', msg)
+                    return  HttpResponseRedirect('/')
             else:
                 msg['error'] = 'Datos incorrectos'
-                return render_to_response('login.html', msg)
-    else:
-        form = LoginUserForm()
-    return render(request, 'login.html', {'form': form})
+                return HttpResponseRedirect('/')
+        else:
+            HttpResponseRedirect('/')
+    return render(request, 'index.html')
 
 def Logout(request):
     authlogout(request)
-    return redirect('/login')
+    return redirect('/')
+
+@login_required(login_url='/login', redirect_field_name='')
+def ProfileEdit(request):
+    if request.method == 'POST':
+        form = PerfilForm(request.user.username, request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        try:
+            user = Profile.objects.get(user=request.user)
+        except Profile.DoesNotExist:
+            form = PerfilForm(request.user.username)
+            return render(request, 'perfil.html', {'form': form})
+        form = PerfilForm(request.user.username, instance=user)
+    return render(request, 'perfil.html', {'form': form})
