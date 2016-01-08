@@ -1,43 +1,36 @@
-# Heroku Django Starter Template
+Pedidos.py - Una Aplicación Web para un Restaurante de Comida Rápida
 
-An utterly fantastic project starter template for Django 1.9.
+Pedidos.py es una aplicación hecha en el framework [Django](https://www.djangoproject.com/) y subida a la plataforma para aplicaciones en la nube [Heroku](https://www.heroku.com/), para la materia de Programación de Dispositivos Móviles III del Instituto Tecnológico de Chetumal.
 
-## Features
+Está enfocada en la petición de órdenes de comida a través de la web empleando dispositivos móviles.
 
-- Production-ready configuration for Static Files, Database Settings, Gunicorn, etc.
-- Enhancements to Django's static file serving functionality via WhiteNoise
-- Enhancements to Django's database functionality via django-postgrespool and dj-database-url
+Características:
 
-## How to Use
+-Multi-plataforma por su naturaleza Web:(iOS, Android, Windows etc).
+-Almacenamiento a través de Postgress en Heroku y en MySQL en su etapa de desarrollo.
+-Manejo de cuentas de usuario: Cree una cuenta dentro de la aplicación para una orden más personalizada.
+-Empleo de sensores de dispositivos móviles: Escriba su dirección o deje que se obtenga a través del GPS del dispositivo móvil, para que en futuros pedidos sólo tenga que preocuparse de seleccionar su orden.
+-Carrito de compra: Revise sus pedidos elegidos o cancélelos.
+-Diseño responsivo: El diseño de la aplicación Web se 'adapta' a la vista de diferentes dispositivos.
 
-To use this project, follow these steps:
+El objetivo de Pedidos.py es el demostrar el empleo de una aplicación Web, empleando ciertos criterios de almacenamiento, diseño y usabilidad, siendo compatible con los diversos dispositivos móviles que se usan actualmente.
 
-1. Create your working environment.
-2. Install Django (`$ pip install django`)
-3. Create a new project using this template
+Miembros del Equipo:
 
-## Creating Your Project
+Aquino Geronimo Erick Geovany
+https://github.com/NocSchecter
 
-Using this template to create a new Django app is easy::
+Buenfil Nevárez Luis Carlos
+https://github.com/LuisCarlosBuenfilNevarez
 
-    $ django-admin.py startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile helloworld
+Maldonado Morales Zeoli Antonio
+https://github.com/Zeoli
 
-You can replace ``helloworld`` with your desired project name.
+Enlace del repositorio:
+https://github.com/Zeoli/movil-itch
 
-## Deployment to Heroku
+Enlace de la aplicación en la nube:
+http://itch-movil.herokuapp.com/
 
-    $ git init
-    $ git add -A
-    $ git commit -m "Initial commit"
-
-    $ heroku create
-    $ git push heroku master
-
-    $ heroku run python manage.py migrate
-
-## Further Reading
-
-- [Gunicorn](https://warehouse.python.org/project/gunicorn/)
-- [WhiteNoise](https://warehouse.python.org/project/whitenoise/)
-- [django-postgrespool](https://warehouse.python.org/project/django-postgrespool/)
-- [dj-database-url](https://warehouse.python.org/project/dj-database-url/)
+Diagramas y capturas de pantalla:
+https://goo.gl/E5qhLL
