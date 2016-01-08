@@ -6,130 +6,20 @@
         <div data-role="collapsible">
             <h6 class="subtitle">Platillos principales</h6>
             {% if productos %}
-                {% for item in productos %}
-                    {{ item }}
-                {% endfor %}
-            {% else %}
                 <ul data-role="listview" data-inset="false">
+                {% for item in productos %}
                     <li>
-                        <a href="#">
-                            <img src="{% static 'img/test.png' %}" alt="Test image"/>
-                            <h2>Platillo 1</h2>
-                            <p>Ver más...</p>
+                        <a href="/producto/{{ item.id }}">
+                            <img src="{% static "img/test.png" %}" alt="Test image"/>
+                            <h2>{{ item.nombre }}</h2>
+                            <p>Ver más ...</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test1.png' %}" alt="Test image"/>
-                            <h2>Platillo 2</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test2.jpg' %}" alt="Test image"/>
-                            <h2>Platillo 3</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test3.png' %}" alt="Test image"/>
-                            <h2>Platillo 4</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test.png' %}" alt="Test image"/>
-                            <h2>Platillo 1</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test1.png' %}" alt="Test image"/>
-                            <h2>Platillo 2</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test2.jpg' %}" alt="Test image"/>
-                            <h2>Platillo 3</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test3.png' %}" alt="Test image"/>
-                            <h2>Platillo 4</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
+                {% endfor %}
                 </ul>
+            {% else %}
+                No se encontraron productos
             {% endif %}
-        </div>
-        <div data-role="collapsible">
-            <h6>Bebidas</h6>
-            <ul data-role="listview" data-inset="false">
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test.png' %}" alt="Test image"/>
-                            <h2>Platillo 1</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test1.png' %}" alt="Test image"/>
-                            <h2>Platillo 2</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test2.jpg' %}" alt="Test image"/>
-                            <h2>Platillo 3</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test3.png' %}" alt="Test image"/>
-                            <h2>Platillo 4</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test.png' %}" alt="Test image"/>
-                            <h2>Platillo 1</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test1.png' %}" alt="Test image"/>
-                            <h2>Platillo 2</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test2.jpg' %}" alt="Test image"/>
-                            <h2>Platillo 3</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/test3.png' %}" alt="Test image"/>
-                            <h2>Platillo 4</h2>
-                            <p>Ver más...</p>
-                        </a>
-                    </li>
-                </ul>
         </div>
     </div>
 {% endblock %}

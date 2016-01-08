@@ -65,6 +65,16 @@ def Logout(request):
     return redirect('/')
 
 @login_required(login_url='/login', redirect_field_name='')
+def ProfileView(request):
+    usuario = User.objects.get(username=request.user.username)
+    try:
+        perfil = Profile.objects.get(user=usuario)
+    except Profile.DoesNotExist:
+        return redirect('/edit/perfil/')
+    return render(request, 'perfil_view.html', {'perfil': perfil})
+
+
+@login_required(login_url='/login', redirect_field_name='')
 def ProfileEdit(request):
     if request.method == 'POST':
         form = PerfilForm(request.user.username, request.POST)

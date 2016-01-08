@@ -12,6 +12,10 @@ body {
     height: 100vh;
 }
 
+.image-product{
+    width: 100vw;
+}
+
 @media screen and (orientation: portrait){
 
 }
