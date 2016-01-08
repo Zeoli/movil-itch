@@ -3,4 +3,38 @@
 {% load staticfiles %}
 
 {% block content %}
+        <ul data-role="listview" data-inset="false">
+            <li>
+                Usuario: {{ user.username }}
+            </li>
+            <li>
+                Nombre completo: {{ user.first_name }}
+            </li>
+            <li>
+                Apellido: {{ user.last_name }}
+            </li>
+            <li>
+                E-mail: {{ user.email }}
+            </li>
+        </ul>
+            <ul data-role="listview" data-inset="false">
+                <li>
+                    Calle: {{ perfil.Calle }}
+                </li>
+                <li>
+                    Colonia: {{ perfil.Colonia }}
+                </li>
+                <li>
+                    Municipio: {{ perfil.Municipio }}
+                </li>
+                <li>
+                    Ciudad: {{ perfil.Ciudad }}
+                </li>
+                <li>
+                    Estado: {{ perfil.Estado }}
+                </li>
+                <li>
+                    Pais: {{ perfil.Pais }}
+                </li>
+            </ul>
 {% endblock %}
